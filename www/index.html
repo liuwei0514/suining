@@ -3,74 +3,73 @@
 <head>
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/jquery.mobile-1.0.1.min.css"/>
-
-    <!-- The Templates -->
-    <script type="text/template" id="home">
-
-        <div data-role="header">
-            <h1>Backbone.js + jQuery Mobile</h1>
-        </div>
-
-        <div data-role="content">
-            <h3>Application Template for using Backbone.js and jQuery Mobile.</h3>
-            <p>Backbone.js is used for code organization (Models, Views) and "routing".</p>
-            <p>jQuery Mobile is used for its mobile styles and widgets. The routing and navigation capabilities of jQuery Mobile are disbled to let Backbone.js handle these requirements.</p>
-            <p>This is the Home page. It was created dynamically using an underscore.js template.</p>
-            <p>Navigate to:</p>
-            <ul data-role="listview"  data-inset="true">
-                <li><a href="#page1">Page 1</a></li>
-                <li><a href="#page2">Page 2</a></li>
-            </ul>
-        </div>
-
-    </script>
-
-    <script type="text/template" id="page1">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css"/>
+</head>
+<body>
+    <div id="categories" data-role="page" data-title="Categories">
 
         <div data-role="header">
-            <a href="#" data-icon="back" class="back ui-btn-left">Back</a>
-            <h1>Page 1</h1>
+            <h1>睢宁</h1>
         </div>
+        <!-- /header -->
 
         <div data-role="content">
-            <p>This is Page 1. It was created dynamically using an underscore.js template.</p>
-            <p>Navigate to:</p>
             <ul data-role="listview" data-inset="true">
-                <li><a href="#">Home</a></li>
-                <li><a href="#page2">Page 2</a></li>
+                <li>
+                    <a href="#category?category1" class="category1">睢宁要闻</a>
+                </li>
+                <li>
+                    <a href="#category?category2" class="category2">部门快讯</a>
+                </li>
+                <li>
+                    <a href="#category?category3" class="category3">乡镇传真</a>
+                </li>
+                <li>
+                    <a href="#category?category4" class="category4">信息公开</a>
+                </li>
+                <li>
+                    <a href="#category?category5" class="category5">专题服务</a>
+                </li>
+                <li>
+                    <a href="#category?category6" class="category6">投资睢宁</a>
+                </li>
             </ul>
         </div>
+        <!-- /content --> </div>
 
-    </script>
-
-    <script type="text/template" id="page2">
+    <div id="category1" data-role="page" data-title="category1">
 
         <div data-role="header">
-            <a href="#" data-icon="back" class="back ui-btn-left">Back</a>
-            <h1>Page 2</h1>
+            <h1>睢宁要闻</h1>
         </div>
+        <!-- /header -->
 
         <div data-role="content">
-            <p>This is Page 2. It was created dynamically using an underscore.js template.</p>
-            <p>Navigate to:</p>
-            <ul data-role="listview" data-inset="true">
-                <li><a href="#">Home</a></li>
-                <li><a href="#page1">Page 1</a></li>
-            </ul>
+            <ul data-role="listview" data-inset="true"></ul>
         </div>
+        <!-- /content --> </div>
 
-    </script>
+    <div id="category2" data-role="page" data-title="category2">
+
+        <div data-role="header">
+            <h1>部门快讯</h1>
+        </div>
+        <!-- /header -->
+
+        <div data-role="content">
+            <ul data-role="listview" data-inset="true"></ul>
+        </div>
+        <!-- /content --> </div>
+
+    <!-- Underscore Template that is used to display all of the Category Models -->
+    <script id="categoryItems" type="text/template">
+      <% _.each( collection.toJSON(), function( category, id ) { %>
+            <li class="ui-li ui-li-static ui-btn-up-c ui-corner-top">
+                  <%= category.type %></li>
+      <% }); %></script>
 
     <!-- The Scripts -->
-    <script src="lib/jquery-1.7.1.min.js"></script>
-    <script src="js/jqm-config.js"></script>
-    <script src="lib/jquery.mobile-1.0.1.min.js"></script>
-    <script src="lib/underscore-min.js"></script>
-    <script src="lib/backbone-min.js"></script>
-    <script src="js/main.js"></script>
-</head>
-
-<body></body>
+    <script src="js/lib/require.js" data-main="js/main"></script>
+</body>
 
 </html>
