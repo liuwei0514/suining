@@ -4,19 +4,30 @@
             "underscore": "lib/underscore-min",
             "backbone": "lib/backbone-min",
             "jquerymobile": "lib/jquery.mobile-1.4.2.min" ,
+            "iscroll": "lib/iscroll" ,
+            "iscroll.additional": "lib/iscroll.additional" ,
+            "iscrollview": "lib/jquery.mobile.iscrollview" ,
+            "pull": "lib/pull" ,
             "jquerysoap": "lib/jquery.soap"　　　　
         },
-        shim: {　　　　　　
+        shim: {　
             'underscore': {　　　　　　　　
                 exports: '_'　　　　　　
             },
             "jquerysoap"  : ["jquery"],
+            "iscroll.additional"  : ["jquery"],
+            "iscrollview"  : ["iscroll.additional","iscroll","jquerymobile"],
+            "pull"  : ["iscrollview"],
+            "jquery": {
+                "exports": "$"
+            },
             "backbone": {
                 "deps": ["underscore", "jquery"],
                 "exports": "Backbone" //attaches "Backbone" to the window object
             }　　　　
         }　　
     });
+    
     require(["jquery", "backbone", "mobileRouter", "jquerymobile"], function($, Backbone, Mobile) {
 
         // Prevents all anchor click handling
