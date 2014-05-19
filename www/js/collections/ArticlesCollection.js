@@ -72,7 +72,7 @@ define([
                 //enableLogging: true,
 
                 success: function(SOAPResponse) {
-                    var articlesText = $(SOAPResponse.content.children[0].innerHTML).text();
+                    var articlesText = SOAPResponse.content.querySelector("out").textContent;
                     var articlesArray = articlesText.split(";");
                     $.each(articlesArray,function(i,item){
                         if($.trim(item)!=""){
