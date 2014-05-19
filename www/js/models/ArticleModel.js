@@ -41,7 +41,7 @@ define([
                 //enableLogging: true,
 
                 success: function(SOAPResponse) {
-                	var content = SOAPResponse.content.querySelector("out").textContent;
+                	var content = SOAPResponse.content.querySelector("out").childNodes[0].textContent;
                 	var article ={};
                     article.content = content;
                     article.type = type;
